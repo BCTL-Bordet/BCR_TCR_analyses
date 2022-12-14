@@ -7,16 +7,26 @@ if (!require("reldist", quietly = TRUE))
 
 library(dplyr)
 library(MatrixGenerics)
+library(reldist)
 
 # load example files
 list_examples <- readRDS("list_examples.RDS")
 tot_number_reads <- readRDS("tot_number_reads.RDS")
+
+#### 
 # "list_examples" is a named list of MiXCR outputs for each sample, reorganized for the downstream analyses.
-# "Clones" = 
+#### Explanation of columns contained in list_examples
+# "Clones" = number of clones as defined in the manuscript
+# "Proportion" = calculated as the sum of all clones (column "Clones") divided by the total number of clones for that sample
+# CDR3.nt = CDR3 region, sequence of nucteotides
+# CDR3.aa = CDR3 region, sequence of amino acids
+# "V.name", "D.name", "J.name", "C.name" = names of V, D, J and C region genes
+####
 
-# The column "Proportion" was calculated as the sum of all clones (column "Clones") divided by the total number of clones for that sample
-
+###
 # "tot_number_reads" is a dataframe with sample names and the total number of reads mapping to genes for each sample
+###
+
 
 ########### 
 # First run functions stored in "R/functions" folder
@@ -49,4 +59,6 @@ df_measures$TR_Nreads_NORM <- (df_measures$TR_Nreads / df_measures$tot_number_re
 df_measures$TRA_Nreads_NORM <- (df_measures$TRA_Nreads / df_measures$tot_number_reads_mapping_to_genes) * 1000 
 df_measures$TRB_Nreads_NORM <- (df_measures$TRB_Nreads / df_measures$tot_number_reads_mapping_to_genes) * 1000 
 df_measures$TRD_Nreads_NORM <- (df_measures$TRD_Nreads / df_measures$tot_number_reads_mapping_to_genes) * 1000 
-df_measures$TRG_Nreads_NORM <- (df_measures$TRG_Nreads / df_measures$tot_number_reads_mapping_to_genes) * 1000 
+df_measures$TRG_Nreads_NORM <- (df_measures$TRG_Nreads / df_measures$tot_number_reads_mapping_to_genes) * 1000                               
+                   
+                   
