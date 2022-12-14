@@ -34,7 +34,7 @@ tot_number_reads <- readRDS("tot_number_reads.RDS")
 
 #####################################
 # calculate BCR/TCR measures
-measures <- lapply(list_examples, FUN= function(x) tcrParamsAll(x, todo = "all")) 
+measures <- lapply(list_examples, FUN = function(x) tcrParamsAll(x, todo = "all")) 
 
 # reorganize results in a dataframe, re-assigning column names (all BCR/TCR measures) and column "sample" based on sample names
 df_measures <- data.frame(matrix(unlist(measures), nrow=length(measures), byrow=T))
@@ -42,14 +42,15 @@ colnames_bcr_tcr <- gsub(" |[-]", "_", names(measures[[1]]))
 colnames(df_measures) <- colnames_bcr_tcr  
 df_measures$sample <- names(list_examples)
 
-
+# add information relative to number of reads
 df_measures <- df_measures %>%
   dplyr::left_join(tot_number_reads, by = "sample")
+
+# change order of columns
 df_measures <- df_measures %>%
   select(sample, tot_number_reads_mapping_to_genes, everything())
 
-# compute number of IG/TR reads normalized by total number of reads mapping to genes (multiplied by a factor of 1000)
-
+# compute number of IG/TR reads normalized by total number of reads mapping to genes (multiplied by a factor of 1000): final dataframe
 df_measures$IG_Nreads_NORM <- (df_measures$IG_Nreads / df_measures$tot_number_reads_mapping_to_genes) * 1000
 df_measures$IGH_Nreads_NORM <- (df_measures$IGH_Nreads / df_measures$tot_number_reads_mapping_to_genes) * 1000 
 df_measures$IGK_Nreads_NORM <- (df_measures$IGK_Nreads / df_measures$tot_number_reads_mapping_to_genes) * 1000 
