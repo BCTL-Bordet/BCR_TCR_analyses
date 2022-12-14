@@ -15,4 +15,4 @@ The script to run the example is stored in /R/scripts and requires the content o
 The files "measures.RDS" and "df_measures.RDS" represent the expected outputs created with script_for_example.R and can be checked to verify the results obtained with the given examples.
 
 
-Total runtime for script_for_example.R on a computer with 32GB RAM, Apple M1 Max CPU is 1.683721 secs.
+Total runtime for script_for_example.R on a computer with 32GB RAM, Apple M1 Max CPU is ~1.6-2 seconds.
