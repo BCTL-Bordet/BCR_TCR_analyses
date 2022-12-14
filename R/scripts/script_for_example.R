@@ -11,7 +11,9 @@ library(MatrixGenerics)
 # load example files
 list_examples <- readRDS("list_examples.RDS")
 tot_number_reads <- readRDS("tot_number_reads.RDS")
-# "list_examples" is a named list of MiXCR outputs for each sample, reorganized for the downstream analyses. 
+# "list_examples" is a named list of MiXCR outputs for each sample, reorganized for the downstream analyses.
+# "Clones" = 
+
 # The column "Proportion" was calculated as the sum of all clones (column "Clones") divided by the total number of clones for that sample
 
 # "tot_number_reads" is a dataframe with sample names and the total number of reads mapping to genes for each sample
