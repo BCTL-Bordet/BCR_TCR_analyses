@@ -1,6 +1,6 @@
 # BCR_TCR_analyses
 Functions to compute BCR/TCR diversity measures, with examples, from MiXCR outputs. 
-The scripts have been tested on R (v4.0.5 and v4.2.1).
+The scripts have been tested on the R software (v4.0.5 and v4.2.1).
 The two examples represent the simulated samples created to produce Supplementary Figure 1 in PMID:...
 
 First, download the files list_examples.RDS and tot_number_reads.RDS.
