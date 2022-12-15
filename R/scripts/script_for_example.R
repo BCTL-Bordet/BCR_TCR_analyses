@@ -1,7 +1,8 @@
 if (!require("dplyr", quietly = TRUE))
   install.packages("dplyr")
-if (!require("MatrixGenerics", quietly = TRUE))
-  install.packages("MatrixGenerics")
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install("MatrixGenerics")
 if (!require("reldist", quietly = TRUE))
   install.packages("reldist")
 
