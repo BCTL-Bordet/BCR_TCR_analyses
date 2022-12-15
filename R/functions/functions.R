@@ -42,7 +42,7 @@ assignTBCRtype = function(x)
 }
 
 tcrParamsAll = function(x, cnts, todo="all")
-{ library(reldist) # For gini
+{ #library(reldist) # For gini
   if (missing(cnts)) { cnts = x$Clones; }
   cl = assignTBCRtype(x);
   r = do.call(cbind, lapply(split(seq_along(cnts), factor(cl[,1], levels=c("IG", "TR"))),
