@@ -68,3 +68,23 @@ df_measures$TRD_Nreads_NORM <- (df_measures$TRD_Nreads / df_measures$tot_number_
 df_measures$TRG_Nreads_NORM <- (df_measures$TRG_Nreads / df_measures$tot_number_reads_mapping_to_genes) * 1000                       
 
 
+# end.time <- Sys.time()
+# time.taken <- end.time - start.time
+# time.taken
+########################################################
+
+# saveRDS(measures, "measures.RDS")
+# saveRDS(df_measures, "df_measures.RDS")
+
+# compare results obtained with expected results, matching the 2 examples provided as Supplementary Figure 1 for BCR (total IG) measures
+measures$sample_1[c("IG Nclones", "IG Evenness", "IG Gini", "IG Gini-Simpson", "IG Top", "IG 2nd")] # supplementary figure 1a
+measures$sample_2[c("IG Nclones", "IG Evenness", "IG Gini", "IG Gini-Simpson", "IG Top", "IG 2nd")] # supplementary figure 1b
+
+measures_expected <- readRDS("measures.RDS")
+df_measures_expected <- readRDS("df_measures.RDS")
+
+table(measures_expected[[1]] == measures[[1]]) 
+table(measures_expected[[2]] == measures[[2]]) 
+table(df_measures_expected == df_measures)  
+
+
